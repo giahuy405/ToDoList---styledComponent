@@ -5,9 +5,39 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background:
+    radial-gradient(50% 50% at 100% 0, #3ab6e0 0% 5%, #ffe3d4 6% 15%, #3ab6e0 16% 25%, #ffe3d4 26% 35%, #3ab6e0 36% 45%,
+      #ffe3d4 46% 55%, #3ab6e0 56% 65%, #ffe3d4 66% 75%, #3ab6e0 76% 85%, #ffe3d4 86% 95%,
+      #0000 96%),
+    radial-gradient(50% 50% at 0 100%, #3ab6e0 0% 5%, #ffe3d4 6% 15%, #3ab6e0 16% 25%, #ffe3d4 26% 35%, #3ab6e0 36% 45%,
+      #ffe3d4 46% 55%, #3ab6e0 56% 65%, #ffe3d4 66% 75%, #3ab6e0 76% 85%, #ffe3d4 86% 95%,
+      #0000 96%),
+    radial-gradient(50% 50%, #3ab6e0 0% 5%, #ffe3d4 6% 15%, #3ab6e0 16% 25%, #ffe3d4 26% 35%, #3ab6e0 36% 45%,
+      #ffe3d4 46% 55%, #3ab6e0 56% 65%, #ffe3d4 66% 75%, #3ab6e0 76% 85%, #ffe3d4 86% 95%,
+      #0000 96%),
+    radial-gradient(50% 50%, #3ab6e0 0% 5%, #ffe3d4 6% 15%, #3ab6e0 16% 25%, #ffe3d4 26% 35%, #3ab6e0 36% 45%,
+      #ffe3d4 46% 55%, #3ab6e0 56% 65%, #ffe3d4 66% 75%, #3ab6e0 76% 85%, #ffe3d4 86% 95%,
+      #0000 96%) 23px 23px;
+  background-size: 46px 46px;
+  background-color: #3ab6e0;
+
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.miniBtn{
+  padding: 4px 8px!important;
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0 0 0 /.7);
+  z-index: -1;
+}
+
+.todolist {
+  margin-top: 35px;
 }
