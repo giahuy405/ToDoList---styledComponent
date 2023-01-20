@@ -13,4 +13,8 @@ export const Button = styled.button`
         background-color: ${props => props.theme.hoverBgColor};
         box-shadow: 0 0 ${props => props.theme.color};
     }
+    &:disabled{
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
 `

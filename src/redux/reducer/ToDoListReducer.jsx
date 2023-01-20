@@ -1,7 +1,7 @@
 import { PrimaryTheme } from '../../Theme/PrimaryTheme'
 import { LightTheme } from '../../Theme/LightTheme'
 import { DarkTheme } from '../../Theme/DarkTheme'
-import { add_task, delete_task, edit_task, select_theme } from '../types/ToDoListType'
+import { add_task, delete_task, done_task, edit_task, select_theme, update_task } from '../types/ToDoListType'
 import { arrTheme } from '../../Theme/ThemeManager'
 
 
@@ -13,7 +13,7 @@ const initalState = {
         { taskName: 'task 3', id: 3, done: false },
         { taskName: 'task 4', id: 4, done: true },
     ],
-    taskEdit: { taskName: 'task 1', id: 1, done: false },
+    taskEdit: {},
 }
 
 export const ToDoListReducer = (state = initalState, action) => {
@@ -47,10 +47,31 @@ export const ToDoListReducer = (state = initalState, action) => {
 
             return { ...state, taskList: newArr }
         }
-        case edit_task:{
-            let taskEdit = state.taskEdit;
-            taskEdit=action.payload;
-            return {...state,taskEdit };
+        case edit_task: {
+            return { ...state, taskEdit: action.payload };
+        }
+        case done_task: {
+            let taskList = [...state.taskList];
+            let index = taskList.findIndex(item => item.id === action.payload);
+            if (index !== -1) {
+                taskList[index].done = true;
+            }
+            return {...state,taskList}
+        }
+        case update_task: {
+            if (state.taskEdit.taskName === action.payload) {
+                alert('Bạn chưa chỉnh sửa task');
+                return { ...state };
+            }
+            state.taskEdit = { ...state.taskEdit, taskName: action.payload };
+            let taskList = [...state.taskList];
+            let index = taskList.findIndex(item => item.id === state.taskEdit.id);
+
+            if (index !== -1) {
+                taskList[index] = state.taskEdit;
+            }
+
+            return { ...state, taskList };
         }
         default:
             return state;
